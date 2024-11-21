@@ -289,3 +289,19 @@ class GraphQLConfiguration(config: ApplicationConfig) {
 
 private fun String?.toBatchingStrategy(): GraphQLConfiguration.BatchingStrategy =
     GraphQLConfiguration.BatchingStrategy.values().firstOrNull { strategy -> strategy.name == this } ?: GraphQLConfiguration.BatchingStrategy.SYNC_EXHAUSTION
+
+
+
+class GraphQLConfigurationProvider {
+    private var configure: (GraphQLConfiguration.() -> Unit)? = null
+
+    fun applyConfiguration(configure: GraphQLConfiguration.() -> Unit) {
+        this.configure = configure
+    }
+
+    fun createConfiguration(applicationConfig: ApplicationConfig): GraphQLConfiguration {
+        return GraphQLConfiguration(applicationConfig).apply {
+            configure?.invoke(this)
+        }
+    }
+}

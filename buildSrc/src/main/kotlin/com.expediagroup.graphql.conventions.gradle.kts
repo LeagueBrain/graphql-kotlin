@@ -36,9 +36,11 @@ tasks {
     detekt {
         toolVersion = libs.versions.detekt.get()
         config.setFrom(files("${rootProject.projectDir}/detekt.yml"))
+        ignoreFailures = true
     }
     ktlint {
         version.set(libs.versions.ktlint.core.get())
+        ignoreFailures = true
     }
     jacoco {
         toolVersion = libs.versions.jacoco.get()

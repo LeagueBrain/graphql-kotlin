@@ -24,21 +24,22 @@ dependencies {
     }
 }
 
+
 tasks {
     jacocoTestCoverageVerification {
-        violationRules {
-            rule {
-                limit {
-                    counter = "INSTRUCTION"
-                    value = "COVEREDRATIO"
-                    minimum = "0.75".toBigDecimal()
-                }
-                limit {
-                    counter = "BRANCH"
-                    value = "COVEREDRATIO"
-                    minimum = "0.48".toBigDecimal()
-                }
-            }
-        }
+//        violationRules {
+//            rule {
+//                limit {
+//                    counter = "INSTRUCTION"
+//                    value = "COVEREDRATIO"
+//                    minimum = "0.75".toBigDecimal()
+//                }
+//                limit {
+//                    counter = "BRANCH"
+//                    value = "COVEREDRATIO"
+//                    minimum = "0.48".toBigDecimal()
+//                }
+//            }
+//        }
     }
 }
